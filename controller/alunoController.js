@@ -16,9 +16,9 @@ exports.inserir = (req, resp) => {
     const dados = req.body
     repository.inserirAlunos(dados, (erro, resultado) => {
         if(erro){
-            resp.send("Erro inserir")
+            return res.status(500).send("Erro ao inserir: " + err.message)
         } else {
-            resp.send(resultado)
+            resp.send("Aluno inserido.")
         }
     })
 }
