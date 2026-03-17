@@ -9,9 +9,9 @@ exports.listarAlunos = (callback) => {
 }
 
 // inserir alunos
-exports.inserirAlunos = (callback) => {
+exports.inserirAlunos = (novoAluno, callback) => {
     const sql = "insert into aluno set ?"
-    db.query(sql, (erro, resultado) => {
+    db.query(sql, novoAluno, (erro, resultado) => {
         callback(erro, resultado)
     })
 }
